@@ -1,6 +1,7 @@
 function [A,Jxk,Jyk]=find_matrix(Vkl,n,M,kBTx,kBTy,gx,gy,fx,fy,L)
-% Creates the matrix  A*Pnm=0 with k-space potential Vkl.
-% A = i*n*Jxk + i*m*Jyk 
+%-------------------------------------------------------------------------
+%         Creates the matrix  A*Pnm=0 with k-space potential Vkl.
+%-------------------------------------------------------------------------
     m=n;
     
    [Jx0,Jy0]=deal(zeros(M^2));  % creates a zeros MxM matrix for Jx0 and Jy0          
@@ -35,9 +36,10 @@ function [A,Jxk,Jyk]=find_matrix(Vkl,n,M,kBTx,kBTy,gx,gy,fx,fy,L)
     
     Jxk=Jx1.*mat_fix2/L;
     Jyk=Jy1.*mat_fix2/L;
-    
+%-------------------------------------------------------------------------
+%         A = i*n*Jxk + i*m*Jyk  matrix for FP eq in k-space
+%-------------------------------------------------------------------------   
     Ax=sort((repmat(n,M^2,M)')).*Jxk; 
     Ay=(repmat(m,M^2,M))'.*Jyk; 
-    
-    A=Ax+Ay;  % matrix of coefficients for FP eq in k-space
+    A=Ax+Ay;  % 
 end
