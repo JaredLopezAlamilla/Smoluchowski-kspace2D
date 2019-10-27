@@ -1,6 +1,7 @@
 function [Pnm,Jxnm,Jynm,vx,vy,vorticity,Norm]=null_solver(A,Jxk,Jyk,N,L,n)
-% Solves the nullspace of A and returns P_nm matrix
-
+%-------------------------------------------------------------------------
+%         Solves the nullspace of A and returns P_nm matrix
+%-------------------------------------------------------------------------
     [Q,~,R]=qr(sparse(A.'),0);  % Creates upper triangular matrix such A = Q*R
     
     null_vec=conj(Q(:,end)); % Conjugated in vector shape
