@@ -1,4 +1,4 @@
-function [KK,BB,P]=InversionMatrix(Pkl,M,fx,fy)
+function [KK,BB,P,B,K]=InversionMatrix(Pkl,M,fx,fy,L)
 %-------------------------------------------------------------------------
 %            BUILDS    SPARE DIAGONAL MATRIX FOR F-P EQ. 2D
 %-------------------------------------------------------------------------
@@ -18,7 +18,6 @@ end
 
 D=repmat(D,length(ks));  
 Wy=repmat(W,length(ks));  
-
 Wx=[];                    
 
 for l=1:length(ks)
@@ -33,10 +32,9 @@ D2=spdiags(ones(1,length(ks)^2)',0,length(ks)^2,length(ks)^2);
 
 for l=1:floor(length(ks)^2/2)      
     D2g1=spdiags(P(ceil(length(ks)^2/2)-l)*ones(1,length(ks)^2)',l,length(ks)^2,length(ks)^2);    
-    D2g2=spdiags(P(ceil(length(ks)^2/2)+l)*ones(1,length(ks)^2)',-l,length(ks)^2,length(ks)^2);     
+    D2g2=spdiags(P(ceil(length(ks)^2/2)+l)*ones(1,length(ks)^2)',-l,length(ks)^2,length(ks)^2);    
     D2=D2+D2g1+D2g2;
 end
-
 %-------------------------------------------------------------------------
 %         Jx and Jy contain the terms k(k-q)Pq which multiplies Vk
 %-------------------------------------------------------------------------
@@ -48,10 +46,9 @@ Jy=Wy.*D2;
 Dy=repmat(ks,1,length(ks));
 Dx=sort(repmat(ks,1,length(ks)));
 
-K=spdiags((Dx.*Dx-1j*fx*Dx./(2*pi)+Dy.*Dy-1j*fy*Dy./(2*pi) )',0,length(ks)^2,length(ks)^2);
-
+K=spdiags((Dx.*Dx-1j*fx*L*Dx./(2*pi)+Dy.*Dy-1j*fy*L*Dy./(2*pi) )',0,length(ks)^2,length(ks)^2);
 B=Jx+Jy;
-
 BB=B([1:floor(length(ks)^2/2) ceil(length(ks)^2/2)+1:end],[1:floor(length(ks)^2/2) ceil(length(ks)^2/2)+1:end]);
 KK=K([1:floor(length(ks)^2/2) ceil(length(ks)^2/2)+1:end],[1:floor(length(ks)^2/2) ceil(length(ks)^2/2)+1:end]);
+
 end
