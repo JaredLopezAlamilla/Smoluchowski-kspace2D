@@ -29,7 +29,3 @@ plotting the results
 `>> MSEpot=immse(Vrec,V2D);`
 
    *Additionally you need the functions to generate the different model potentials or build them inside the file SteadyState2D_V2P.m  
-Reconstruct the energy landscape  using the steady-state distribution  and drift-velocities 
-        functions required: func.m, func.m func. m  
-
-
