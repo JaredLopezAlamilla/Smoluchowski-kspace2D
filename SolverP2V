@@ -1,0 +1,11 @@
+function [VV]=SolverP2V(BB,KK,P,M)
+%-------------------------------------------------------------------------
+%            BUILDS    SPARE DIAGONAL MATRIX FOR F-P EQ. 2D
+%-------------------------------------------------------------------------
+k=floor(M/2); ks=-k:1:k;
+VV=zeros((length(ks)^2),1);
+
+VV([1:floor(length(ks)^2/2) ceil(length(ks)^2/2)+1:end],1)...
+    =-(BB\KK)*P(1,[1:floor(length(ks)^2/2) ceil(length(ks)^2/2)+1:end]).';
+VV=reshape(VV,length(ks),length(ks));
+end
