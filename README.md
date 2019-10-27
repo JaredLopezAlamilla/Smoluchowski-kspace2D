@@ -1,4 +1,4 @@
-# Smoluchowski-kSpace
+# Smoluchowski-kSpace Iterative
 
 This repository contains a collection of matlab scripts for  solving  various physical problems
 invloving solutions to the Smoluchowski equation. 
@@ -17,10 +17,12 @@ plotting the results
 
 `>> figure(); contour(Xfine,Yfine,P_pos);title('$P(x,y)$');`
 
-## Reconstruct the energy landscape  using the steady-state distribution  and tilting forces 
-Functions required: Reconstruction2D_P2V.m, InversionMatrix.m, SolverP2V.m, kspace2position1.m
+## Reconstruct the energy landscape  using the steady-state distribution  and drift velocities 
+Functions required:  IterativeOptimyzed2D.m, iterativo2D.m, InversionMatrix.m, SolverP2V.m, kspace2position1.m
 ### Use example:
-`>> Reconstruction2D_P2V;`
+`>> IterativeOptimyzed2D;`
+
+`>>Vrec=dlmread('Vrec.txt');`
 
 plotting the results
         
