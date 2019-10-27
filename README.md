@@ -7,7 +7,7 @@ The smoluchowski equation is represented in k-Space and standard linear algebra 
 are applied to solve it.
 ## Calculate steady-state probability  using the energy landscape
         
-Functions required: SteadyState2D_V2P.m, find_matrix.m, null_slover. m, kspace2position.m  
+Functions required: SteadyState2D_V2P.m, find_matrix.m, null_slover. m, kspace2position1.m  
 ### Use example:
 `>> SteadyState2D_V2P;`
 
@@ -18,7 +18,7 @@ plotting the results
 `>> figure(); contour(Xfine,Yfine,P_pos);title('$P(x,y)$');`
 
 ## Reconstruct the energy landscape  using the steady-state distribution  and tilting forces 
-Functions required: Reconstruction2D_P2V.m, InversionMatrix.m, SolverP2V.m, kspace2position.m
+Functions required: Reconstruction2D_P2V.m, InversionMatrix.m, SolverP2V.m, kspace2position1.m
 ### Use example:
 `>> Reconstruction2D_P2V;`
 
