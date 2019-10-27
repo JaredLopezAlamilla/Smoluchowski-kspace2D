@@ -14,6 +14,7 @@ Functions required: SteadyState2D_V2P.m, find_matrix.m, null_slover. m, kspace2p
 plotting the results
 
 `>> figure(); contour(Xfine,Yfine,V2D);title('$V_0(x,y)$');`
+
 `>> figure(); contour(Xfine,Yfine,P_pos);title('$P(x,y)$');`
 
 ## Reconstruct the energy landscape  using the steady-state distribution  and tilting forces 
