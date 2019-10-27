@@ -1,4 +1,4 @@
-# Smoluchowski-kSpace
+# Smoluchowski-kSpace Direct
 
 This repository contains a collection of matlab scripts for  solving  various physical problems
 invloving solutions to the Smoluchowski equation. 
