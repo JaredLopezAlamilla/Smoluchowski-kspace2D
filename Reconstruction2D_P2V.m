@@ -21,7 +21,7 @@ Pkl=Pkl(Inxnorm(1)-floor(M/2):Inxnorm(1)+floor(M/2),...
     
 %------------ This reconstructs the potential
 
-[KK,BB,P]=InversionMatrix(Pkl,M,fx,fy);
+[KK,BB,P]=InversionMatrix(Pkl,M,fx,fy,L);
 [VV]=SolverP2V(BB,KK,P,M);
 [Vrec,~,~]=kspace2position1(VV,n,MM,0,L);
 Vrec=real(Vrec)-max(real(Vrec(:))); %fix reference level
